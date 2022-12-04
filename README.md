@@ -9,10 +9,10 @@
 __**Check out documentation**__: [https://deknowny.github.io/dnevnik2-petersburgedu-python-client/latest/](https://deknowny.github.io/dnevnik2-petersburgedu-python-client/latest/)
 
 # Features
-[x] Email auth
-[x] Fetch children and schools
-[x] Fetch subjects and marks
-[ ] TODO: Cover other API endpoints, PRs are welcome!
+- [x] Email auth
+- [x] Fetch children and schools
+- [x] Fetch subjects and marks
+- [ ] TODO: Cover other API endpoints, PRs are welcome!
 
 ## Overview
 An example of fetching the latest mark:
