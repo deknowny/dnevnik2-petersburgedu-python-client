@@ -36,6 +36,9 @@ mypy = {optional = true, version="^0.930"}
 mkdocs = {optional = true, version="^1.2.3"}
 mkdocs-material = {optional = true, version="^8.0.2"}
 mike = {optional = true, version="^1.1.2"}
+pydantic = "^1.10.2"
+aiohttp = "^3.8.3"
+orjson = "^3.8.3"
 
 [tool.poetry.extras]
 # Ordinary extra dependencies
@@ -58,6 +61,9 @@ dev-all = [
 ]
 
 
+
+[tool.poetry.dev-dependencies]
+pytest-asyncio = "^0.20.2"
 [tool.black]
 line-length = 78
 
