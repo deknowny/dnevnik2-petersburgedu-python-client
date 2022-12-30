@@ -12,6 +12,6 @@ class Mark(pydantic.BaseModel):
     estimate_value_code: str
     estimate_value_name: str
     id: int
-    lesson_id: int
+    lesson_id: typing.Optional[int]
     subject_id: int
     subject_name: str

@@ -53,20 +53,24 @@ class APIAuthedClient:
             skip_auto_headers={"User-Agent"},
             raise_for_status=True,
         )
-        api_login_response = await _send_get_request(
-            session,
-            f"{api_endpoint}/user/auth/login",
-            user_agent=user_agent,
-            json={
-                "login": login,
-                "password": password,
-                "type": type,
-                "_isEmpty": False,
-            },
-        )
-        token = api_login_response["token"]
-
-        return APIAuthedClient(session, token, user_agent, api_endpoint)
+        try:
+            api_login_response = await _send_get_request(
+                session,
+                f"{api_endpoint}/user/auth/login",
+                user_agent=user_agent,
+                json={
+                    "login": login,
+                    "password": password,
+                    "type": type,
+                    "_isEmpty": False,
+                },
+            )
+        except Exception as err:
+            await session.close()
+            raise err
+        else:
+            token = api_login_response["token"]
+            return APIAuthedClient(session, token, user_agent, api_endpoint)
 
     async def get_child_related(self) -> typing.List[ChildRelated]:
         api_response = await _send_get_request(
